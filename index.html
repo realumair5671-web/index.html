@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Text to Voice</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      padding: 20px;
+    }
+    textarea {
+      width: 100%;
+      height: 120px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h2>Text to Voice Converter</h2>
+
+<textarea id="text" placeholder="Yahan text likho"></textarea>
+<br><br>
+
+<button onclick="speak()">Voice Suno</button>
+
+<script>
+function speak() {
+  let text = document.getElementById("text").value;
+  if (text === "") {
+    alert("Pehle text likho");
+    return;
+  }
+  let speech = new SpeechSynthesisUtterance(text);
+  speech.lang = "en-US"; // ur-PK for Urdu
+  window.speechSynthesis.speak(speech);
+}
+</script>
+
+</body>
+</html>
